@@ -1,1 +1,19 @@
-<p>phonelist works!</p>
+<div class="container">
+  <h1>All Phones</h1>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Snippet</th>
+      <th>Image</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let phone of phones">
+        <td>{{ phone.name }}</td>
+        <td>{{ phone.id }}</td>
+        <td>{{ phone.snippet }}</td>
+        <td>{{ phone.imageUrl }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
