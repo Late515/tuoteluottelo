@@ -1,19 +1,18 @@
-<div class="container">
-  <h1>All Phones</h1>
-  <table>
-    <thead>
-      <th>Name</th>
-      <th>ID</th>
-      <th>Snippet</th>
-      <th>Image</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let phone of phones">
-        <td>{{ phone.name }}</td>
-        <td>{{ phone.id }}</td>
-        <td>{{ phone.snippet }}</td>
-        <td>{{ phone.imageUrl }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<br />
+<br />
+<table class="table table-hover">
+  <thead>
+    <tr></tr>
+  </thead>
+  <tr *ngFor="let phone of phones">
+    <td>
+      <img class="kuva" src="/assets/{{ phone.imageUrl }}" />
+    </td>
+    <td>
+      <a [routerLink]="['/phones', phone.id]">
+        {{ phone.name | capitalize }}
+      </a>
+    </td>
+    <td>{{ phone.snippet }}</td>
+  </tr>
+</table>
