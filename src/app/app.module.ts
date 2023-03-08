@@ -8,6 +8,7 @@ import { PhonelistComponent } from './phonelist/phonelist.component';
 import { SharedModule } from './shared/shared.module';
 import { PhonesComponent } from './phones/phones.component';
 import { FilterTextboxComponent } from './phonelist/filter-textbox.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,13 @@ import { FilterTextboxComponent } from './phonelist/filter-textbox.component';
     PhonesComponent,
     FilterTextboxComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, CoreModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    CoreModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

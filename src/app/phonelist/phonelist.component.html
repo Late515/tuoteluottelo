@@ -1,11 +1,11 @@
-<filter-textbox></filter-textbox>
+<filter-textbox (changed)="filter($event)"></filter-textbox>
 <br />
 <br />
 <table class="table table-hover">
   <thead>
     <tr></tr>
   </thead>
-  <tr *ngFor="let phone of phones">
+  <tr *ngFor="let phone of filteredPhones">
     <td>
       <img class="kuva" src="/assets/{{ phone.imageUrl }}" />
     </td>
@@ -15,5 +15,8 @@
       </a>
     </td>
     <td>{{ phone.snippet }}</td>
+  </tr>
+  <tr *ngIf="!filteredPhones || !filteredPhones.length">
+    <td colspan="4">No phones found</td>
   </tr>
 </table>
