@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import phoneData from '/Users/s2201201/Documents/portfolio/angularin-perusteet/angular-projektit/datan-hakeminen-json-tiedostosta/src/assets/phones/phones.json';
-interface Phone {
-  age: Number;
-  id: String;
-  imageUrl: String;
-  name: String;
-  snippet: String;
-}
+import { IPhone } from '../shared/interfaces';
 
 @Component({
   selector: 'app-phonelist',
@@ -14,9 +8,10 @@ interface Phone {
   styleUrls: ['./phonelist.component.css'],
 })
 export class PhonelistComponent implements OnInit {
+  filteredPhones: IPhone[] = [];
   constructor() {}
 
-  phones: Phone[] = phoneData;
+  phones: IPhone[] = phoneData;
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 }
