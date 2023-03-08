@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import phoneData from '/Users/s2201201/Documents/portfolio/angularin-perusteet/angular-projektit/datan-hakeminen-json-tiedostosta/src/assets/phones/phones.json';
 import { IPhone } from '../shared/interfaces';
+import { SorterService } from '../core/sorter.service';
 
 @Component({
   selector: 'app-phonelist',
@@ -11,7 +12,7 @@ export class PhonelistComponent implements OnInit {
   title!: string;
   phones: IPhone[] = phoneData;
 
-  constructor() {}
+  constructor(private sorterService: SorterService) {}
 
   filteredPhones: IPhone[] = phoneData;
 
@@ -27,5 +28,10 @@ export class PhonelistComponent implements OnInit {
     } else {
       this.filteredPhones = this.phones;
     }
+  }
+
+  sort(prop: string) {
+    // A sorter service will handle the sorting
+    this.sorterService.sort(this.filteredPhones, prop);
   }
 }
