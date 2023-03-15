@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { PhonesComponent } from './phones/phones.component';
 import { FilterTextboxComponent } from './phonelist/filter-textbox.component';
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './shared/search.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     PhonelistComponent,
     PhonesComponent,
     FilterTextboxComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

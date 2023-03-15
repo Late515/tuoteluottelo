@@ -1,31 +1,27 @@
-<filter-textbox (changed)="filter($event)"></filter-textbox>
+<h1>Phone Search Below</h1>
+<input
+  class="form-control"
+  type="text"
+  placeholder="search"
+  [(ngModel)]="searchText"
+/>
 
-<div class="dropdown">
-  <button class="dropbtn">Sort</button>
-  <div class="dropdown-content">
-    <a (click)="sort('age')" href="#">Age</a>
-    <a (click)="sort('name')" href="#">Alphabetical</a>
-  </div>
-</div>
-
-<br />
-<br />
 <table class="table table-hover">
   <thead>
     <tr></tr>
   </thead>
-  <tr *ngFor="let phone of filteredPhones">
+  <tr *ngFor="let product of productList | search : searchText">
     <td>
-      <img class="kuva" src="/assets/{{ phone.imageUrl }}" />
+      <img class="kuva" src="/assets/{{ product.imageUrl }}" />
     </td>
     <td>
-      <a [routerLink]="['/phones', phone.id]">
-        {{ phone.name | capitalize }}
-      </a>
+      <a routerLink="{{ '/phones/' + product.id }}">
+        {{ product.name | capitalize }}</a
+      >
     </td>
-    <td>{{ phone.snippet }}</td>
+    <td>{{ product.snippet }}</td>
   </tr>
-  <tr *ngIf="!filteredPhones || !filteredPhones.length">
+  <tr *ngIf="!productList || !productList.length">
     <td colspan="4">No phones found</td>
   </tr>
 </table>

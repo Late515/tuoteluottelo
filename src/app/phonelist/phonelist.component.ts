@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import phoneData from '/Users/s2201201/Documents/portfolio/angularin-perusteet/angular-projektit/datan-hakeminen-json-tiedostosta/src/assets/phones/phones.json';
-import { IPhone } from '../shared/interfaces';
-import { SorterService } from '../core/sorter.service';
+import { PhoneService } from '../core/phone.service';
 
 @Component({
   selector: 'app-phonelist',
@@ -9,29 +7,25 @@ import { SorterService } from '../core/sorter.service';
   styleUrls: ['./phonelist.component.css'],
 })
 export class PhonelistComponent implements OnInit {
-  title!: string;
-  phones: IPhone[] = phoneData;
+  productList: any;
 
-  constructor(private sorterService: SorterService) {}
+  searchText = '';
 
-  filteredPhones: IPhone[] = phoneData;
+  constructor(public phoneService: PhoneService) {}
 
-  ngOnInit() {
-    this.title = 'Phones';
+  ngOnInit(): void {
+    this.getProducts();
   }
 
-  filter(data: string) {
-    if (data) {
-      this.filteredPhones = this.filteredPhones.filter((phone: IPhone) => {
-        return phone.name.toLowerCase().indexOf(data.toLowerCase()) > -1;
-      });
-    } else {
-      this.filteredPhones = this.phones;
-    }
-  }
-
-  sort(prop: string) {
-    // A sorter service will handle the sorting
-    this.sorterService.sort(this.filteredPhones, prop);
+  getProducts(): void {
+    this.phoneService.getAllProducts().subscribe(
+      (data: any) => {
+        this.productList = data;
+      },
+      (error: any) => {
+        console.log('http-error');
+        console.log(error);
+      }
+    );
   }
 }

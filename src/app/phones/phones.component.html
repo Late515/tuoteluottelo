@@ -1,3 +1,27 @@
-<h1>phone</h1>
+<div class="col-xl-9">
+  <article>
+    <div *ngIf="chosenPhone">
+      <p>{{ chosenPhone.name }}</p>
+      <hr />
+      <p>{{ chosenPhone.description }}</p>
+      <hr />
+      <section
+        class="show-images col-4"
+        *ngFor="let image of chosenPhone.images"
+      >
+        <figure class="phone-item-info-small-image">
+          <img
+            src="{{ 'assets/' + image }}"
+            alt="{{ phoneId }}"
+            class="pointer img-fluid"
+          />
+        </figure>
+      </section>
+    </div>
+  </article>
+</div>
 
-<a routerLink="/phoneslist">View All Phones</a>
+<div *ngIf="!chosenPhone">No Phone</div>
+<br />
+
+<a routerLink="/phones-list">All Phones</a>
