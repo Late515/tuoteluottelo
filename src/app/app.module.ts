@@ -10,6 +10,7 @@ import { PhonesComponent } from './phones/phones.component';
 import { FilterTextboxComponent } from './phonelist/filter-textbox.component';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './shared/search.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SearchPipe } from './shared/search.pipe';
     SharedModule,
     CoreModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

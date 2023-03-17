@@ -1,0 +1,10 @@
+img {
+  max-height: 130px;
+}
+.show-images {
+  display: grid;
+  display: inline-grid;
+  align-content: stretch;
+  justify-items: center;
+  justify-content: start;
+}

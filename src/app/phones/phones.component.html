@@ -17,6 +17,15 @@
           />
         </figure>
       </section>
+      <section class="details">
+        <p>Availibility and networks: {{ chosenPhone.availability }}</p>
+        <p>CPU: {{ chosenPhone.hardware.cpu }}</p>
+        <p>RAM: {{ chosenPhone.storage.ram }}</p>
+        <p>Storage: {{ chosenPhone.storage.flash }}</p>
+        <p>Battery: {{ chosenPhone.battery.type }}</p>
+        <p>Camera: {{ chosenPhone.camera.primary }}</p>
+        <p>Connectivity: {{ chosenPhone.connectivity.wifi }}</p>
+      </section>
     </div>
   </article>
 </div>
